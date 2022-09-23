@@ -1,8 +1,7 @@
 <html>
-
 <head>
     <title>Projectile Motion</title>
-    <script defer src="app.js"></script>
+    <script defer src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,7 +11,7 @@
             <B>Projectile Motion for Baseball</B>
             <p>
             <table BORDER>
-                <tr align="center">
+                <tr>
                     <td>Units</td>
                     <td>Angle</td>
                     <td>Initial Speed</td>
@@ -20,22 +19,14 @@
                     <td>lift/drag</td>
                     <td><INPUT TYPE="button" value="Start" onClick="run(this.form)"></td>
                 </tr>
-                <tr align="center">
+                <tr>
                     <td>Metric</td>
                     <td><INPUT TYPE="field" name="anglem" value="0" size="8">deg</td>
                     <td><INPUT TYPE="field" name="v0m" value="0" size="8">m/s</td>
                     <td><INPUT TYPE="field" name="vtm" value="0" size="8">m/s</td>
                     <td><INPUT TYPE="field" name="xxm" value="0" size="8"></td>
                     <td><INPUT TYPE="button" value="update metric units" onClick="etom(this.form)"></td>
-                </tr>
-                <tr align="center">
-                    <td>British</td>
-                    <td><INPUT TYPE="field" name="anglee" value="0" size="8">deg</td>
-                    <td><INPUT TYPE="field" name="v0e" value="0" size="8">mph</td>
-                    <td><INPUT TYPE="field" name="vte" value="0" size="8">mph</td>
-                    <td><INPUT TYPE="field" name="xxe" value="0" size="8"></td>
-                    <td><INPUT TYPE="button" value="update British units" onClick="mtoe(this.form)"></td>
-                </tr>
+                </tr> 
             </table>
             The metric values are used for the calculation, so update metric values before starting.
         </center>
@@ -44,13 +35,13 @@
         </center>
         <center>
             <table BORDER>
-                <tr align="center">
+                <tr>
                     <td>Air Resistance</td>
                     <td> Time of Flight</td>
                     <td>Range</td>
                     <td> Max Height</td>
                 </tr>
-                <tr align="center">
+                <tr>
                     <td> None </td>
                     <td> <INPUT TYPE="text" name="tof0" value="" readonly="readonly" size="8">sec </td>
                     <td> <INPUT TYPE="text" name="range0m" value="" readonly="readonly" size="8">M =
@@ -60,7 +51,7 @@
                         <INPUT TYPE="text" name="hmax0e" value="" readonly="readonly" size="8">ft
                     </td>
                 </tr>
-                <tr align="center">
+                <tr>
                     <td> &sim;v </td>
                     <td> <INPUT TYPE="text" name="tof1" value="" readonly="readonly" size="8">sec </td>
                     <td> <INPUT TYPE="text" name="range1m" value="" readonly="readonly" size="8">M =
@@ -70,7 +61,7 @@
                         <INPUT TYPE="text" name="hmax1e" value="" readonly="readonly" size="8">ft
                     </td>
                 </tr>
-                <tr align="center">
+                <tr>
                     <td> &sim;v<sup>2</sup> </td>
                     <td> <INPUT TYPE="text" name="tof2" value="" readonly="readonly" size="8">sec </td>
                     <td> <INPUT TYPE="text" name="range2m" value="" readonly="readonly" size="8">M =
