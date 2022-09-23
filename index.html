@@ -184,22 +184,13 @@ function etom(form)
 </tr>
 <tr align="center">
 <td>Metric</td>
-<td><INPUT TYPE="field" name="anglem" value="0" size="8">deg</td>
-<td><INPUT TYPE="field" name="v0m" value="0" size="8">m/s</td>
-<td><INPUT TYPE="field" name="vtm" value="0" size="8">m/s</td>
-<td><INPUT TYPE="field" name="xxm" value="0" size="8"></td>
-<td><INPUT TYPE="button" value="update metric units" onClick="etom(this.form)"></td>
+<td><INPUT TYPE="number" name="anglem" value="0" size="8">deg</td>
+<td><INPUT TYPE="number" name="v0m" value="0" size="8">m/s</td>
+<td><INPUT TYPE="number" name="vtm" value="0" size="8">m/s</td>
+<td><INPUT TYPE="number" name="xxm" value="0" size="8"></td>
+<td><INPUT TYPE="button" value="reset" onClick="etom(this.form)"></td>
 </tr>
-<tr align="center">
-<td>British</td>
-<td><INPUT TYPE="field" name="anglee" value="0" size="8">deg</td>
-<td><INPUT TYPE="field" name="v0e" value="0" size="8">mph</td>
-<td><INPUT TYPE="field" name="vte" value="0" size="8">mph</td>
-<td><INPUT TYPE="field" name="xxe" value="0" size="8"></td>
-<td><INPUT TYPE="button" value="update British units" onClick="mtoe(this.form)"></td>
-</tr>
-</table>
-The metric values are used for the calculation, so update metric values before starting. 
+</table> 
 </center>
 <center>
 <canvas id="mygraph" width="800" height="500" style="border:1px solid">
