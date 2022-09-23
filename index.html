@@ -173,42 +173,42 @@
 </head>
 
 <BODY>
-  <FORM NAME="pmotion">
+  <FORM class="form" NAME="pmotion">
     <center>
       <B>Projectile Motion Simulation</B>
       <p>
       <table BORDER>
-        <tr align="center">
-          <td>Units</td>
-          <td>Angle</td>
-          <td>Initial Speed</td>
-          <td>Terminal Speed</td>
-          <td>lift/drag</td>
-          <td><INPUT TYPE="button" value="Start" onClick="run(this.form)"></td>
+        <tr>
+          <td class="units">Units</td>
+          <td class="angle">Angle</td>
+          <td class="initial speed">Initial Speed</td>
+          <td class="terminal speed">Terminal Speed</td>
+          <td class="lift">lift/drag</td>
+          <td><INPUT class="startBtn" TYPE="button" value="Start" onClick="run(this.form)"></td>
         </tr>
-        <tr align="center">
-          <td>Metric</td>
-          <td><INPUT TYPE="field" name="anglem" value="0" size="8">deg</td>
-          <td><INPUT TYPE="field" name="v0m" value="0" size="8">m/s</td>
-          <td><INPUT TYPE="field" name="vtm" value="0" size="8">m/s</td>
-          <td><INPUT TYPE="field" name="xxm" value="0" size="8"></td>
-          <td><INPUT TYPE="button" value="update metric units" onClick="etom(this.form)"></td>
+        <tr>
+          <td class="metrics">Metric</td>
+          <td><INPUT TYPE="number" name="anglem" value="0">deg</td>
+          <td><INPUT TYPE="number" name="v0m" value="0">m/s</td>
+          <td><INPUT TYPE="number" name="vtm" value="0">m/s</td>
+          <td><INPUT TYPE="number" name="xxm" value="0"></td>
+          <td><INPUT TYPE="button" value="reset" onClick="etom(this.form)"></td>
         </tr>
       </table>
     </center>
     <center>
-      <canvas id="mygraph" width="800" height="500" style="border:1px solid">
+      <canvas class="graph" id="mygraph" width="800" height="500" style="border:1px solid">
     </center>
     <center>
       <table BORDER>
-        <tr align="center">
-          <td>Air Resistance</td>
+        <tr>
+          <td>Speed of air</td>
           <td> Time of Flight</td>
           <td>Range</td>
           <td> Max Height</td>
         </tr>
-        <tr align="center">
-          <td> None </td>
+        <tr>
+          <td> Supporting </td>
           <td> <INPUT TYPE="text" name="tof0" value="" readonly="readonly" size="8">sec </td>
           <td> <INPUT TYPE="text" name="range0m" value="" readonly="readonly" size="8">M =
             <INPUT TYPE="text" name="range0e" value="" readonly="readonly" size="8">ft
@@ -217,8 +217,8 @@
             <INPUT TYPE="text" name="hmax0e" value="" readonly="readonly" size="8">ft
           </td>
         </tr>
-        <tr align="center">
-          <td> &sim;v </td>
+        <tr>
+          <td>-------</td>
           <td> <INPUT TYPE="text" name="tof1" value="" readonly="readonly" size="8">sec </td>
           <td> <INPUT TYPE="text" name="range1m" value="" readonly="readonly" size="8">M =
             <INPUT TYPE="text" name="range1e" value="" readonly="readonly" size="8">ft
@@ -227,8 +227,8 @@
             <INPUT TYPE="text" name="hmax1e" value="" readonly="readonly" size="8">ft
           </td>
         </tr>
-        <tr align="center">
-          <td> &sim;v<sup>2</sup> </td>
+        <tr>
+          <td>-----<sup>---</sup> </td>
           <td> <INPUT TYPE="text" name="tof2" value="" readonly="readonly" size="8">sec </td>
           <td> <INPUT TYPE="text" name="range2m" value="" readonly="readonly" size="8">M =
             <INPUT TYPE="text" name="range2e" value="" readonly="readonly" size="8">ft
