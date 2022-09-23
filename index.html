@@ -7,178 +7,18 @@
   <link rel="shortcut icon" href="/asset/catapult.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
 
-<script type="text/javascript">
-    // defined variables for input
-    var xangm, xange, xv0e, xv0m, xvte, xvtm, xx;
-    
-    function run(form) {
-      var x = new Array();
-      var y = new Array();
-      var i, ntot, sumx, sumy, sumxy, sumx2, dumx, dumy;
-      var vx0, vy0, j, g, xtof0, xrange0m, xhmax0m;
-      var xtof1, xhmax1m, xtof2, xhmax2m, xtof2, vv, xtext, vxtemp;
-      var xmin, ymin, xmax, ymax, scale, xoff, yoff, dt, t, x, y, vx, vy;
-      var xplot, yplot, xr, yr, yplotr, xl, yl, yplotl, slerr, yinerr;
-
-      var drawingCanvas = document.getElementById('mygraph');
-      if (drawingCanvas && drawingCanvas.getContext) {
-        xmin = 0;
-        ymin = 0;
-        xoff = 20;
-        yoff = 20;
-        var ctx = drawingCanvas.getContext('2d');
-        ctx.clearRect(0, 0, 800, 500);
-        ctx.strokeStyle = "rgb(0,0,50)";
-        ctx.beginPath();
-        ctx.moveTo(0, 500 - yoff);
-        ctx.lineTo(800, 500 - yoff);
-        ctx.moveTo(xoff, 0);
-        ctx.lineTo(xoff, 500);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.fillStyle = 'rgb(0,200,0)'; // green color for graph
-        g = 9.8;
-        xangm = parseFloat(form.anglem.value);
-        xangm = xangm * Math.PI / 180.0;
-        xv0m = parseFloat(form.v0m.value);
-        xvtm = parseFloat(form.vtm.value);
-        vx0 = xv0m * Math.cos(xangm);
-        vy0 = xv0m * Math.sin(xangm);
-        xtof0 = 2.0 * vy0 / g;
-        form.tof0.value = xtof0.toFixed(3);
-        xrange0m = xtof0 * vx0;
-        xrange0e = xrange0m * 3.2808;
-        form.range0m.value = xrange0m.toFixed(3);
-        form.range0e.value = xrange0e.toFixed(3);
-        xhmax0m = vy0 * vy0 / g / 2.0;
-        xhmax0e = xhmax0m * 3.2808;
-        form.hmax0m.value = xhmax0m.toFixed(3);
-        form.hmax0e.value = xhmax0e.toFixed(3);
-        scale = 770 / xrange0m;
-        if (xhmax0m > xrange0m * 5.0 / 8.0) scale = 470 / xhmax0m;
-        dt = xtof0 / 200.0;
-        vx = vx0;
-        vy = vy0;
-        x = 0;
-        y = 1;
-        t = 0;
-        ctx.beginPath();
-        while (y >= 0) {
-          x = vx * t;
-          y = vy * t - g * t * t / 2.0;
-          t = t + dt;
-          xplot = Math.floor(xoff + scale * x);
-          yplot = Math.floor(500 - yoff - scale * y);
-          ctx.moveTo(xplot, yplot);
-          ctx.arc(xplot, yplot, 2, 0, Math.PI * 2, true);
-        }
-        ctx.closePath();
-        ctx.fill();
-        vx = vx0;
-        vy = vy0;
-        x = 0;
-        y = 1;
-        t = 0;
-        xhmax1m = 0;
-        ctx.fillStyle = 'rgb(200,200,0)';
-        ctx.beginPath();
-        while (y >= 0) {
-          x = x + vx * dt;
-          y = y + vy * dt;
-          vx = vx - g * vx * dt / xvtm - xx * g * vy * dt / xvtm;
-          vy = vy - g * dt - g * vy * dt / xvtm + xx * g * vx * dt / xvtm;
-          t = t + dt;
-          if (y > xhmax1m) xhmax1m = y;
-          xplot = Math.floor(xoff + scale * x);
-          yplot = Math.floor(500 - yoff - scale * y);
-          ctx.moveTo(xplot, yplot);
-          ctx.arc(xplot, yplot, 2, 0, Math.PI * 2, true);
-        }
-        ctx.closePath();
-        ctx.fill();
-        form.tof1.value = t.toFixed(3);
-        form.range1m.value = x.toFixed(3);
-        xtext = x * 3.2808;
-        form.range1e.value = xtext.toFixed(3);
-        form.hmax1m.value = xhmax1m.toFixed(3);
-        xtext = xhmax1m * 3.2808;
-        form.hmax1e.value = xtext.toFixed(3);
-        vx = vx0;
-        vy = vy0;
-        x = 0;
-        y = 1;
-        t = 0;
-        dt = 0.01;
-        xhmax2m = 0;
-        ctx.fillStyle = 'rgb(200,000,000)';
-        ctx.beginPath();
-        while (y >= 0) {
-          vv = Math.sqrt(vx * vx + vy * vy);
-          x = x + vx * dt;
-          y = y + vy * dt;
-          vxtemp = vx;
-          vx = vx - g * vx * dt * vv / xvtm / xvtm - xx * g * vy * dt / xvtm;
-          vy = vy - g * dt - g * vy * dt * vv / xvtm / xvtm + xx * g * vxtemp * dt / xvtm;
-          t = t + dt;
-          if (y > xhmax2m) xhmax2m = y;
-          xplot = Math.floor(xoff + scale * x);
-          yplot = Math.floor(500 - yoff - scale * y);
-          ctx.moveTo(xplot, yplot);
-          ctx.arc(xplot, yplot, 2, 0, Math.PI * 2, true);
-        }
-        ctx.closePath();
-        ctx.fill();
-        form.tof2.value = t.toFixed(3);
-        form.range2m.value = x.toFixed(3);
-        xtext = x * 3.28084;
-        form.range2e.value = xtext.toFixed(3);
-        form.hmax2m.value = xhmax2m.toFixed(3);
-        xtest = xhmax2m * 3.28084;
-        form.hmax2e.value = xtest.toFixed(3);
-      }
-      return true;
-    }
-
-    function mtoe(form) {
-      xangm = parseFloat(form.anglem.value);
-      xange = xangm;
-      form.anglee.value = xange.toFixed(2);
-      xv0m = parseFloat(form.v0m.value);
-      xv0e = xv0m / 0.44704;
-      form.v0e.value = xv0e.toFixed(2);
-      xvtm = parseFloat(form.vtm.value);
-      xvte = xvtm / 0.44704;
-      form.vte.value = xvte.toFixed(2);
-      xx = parseFloat(form.xxm.value);
-      form.xxe.value = xx.toFixed(2);
-      return true;
-    }
-
-    function etom(form) {
-      xange = parseFloat(form.anglee.value);
-      xangm = xange;
-      form.anglem.value = xangm.toFixed(2);
-      xv0e = parseFloat(form.v0e.value);
-      xv0m = xv0e * 0.44704;
-      form.v0m.value = xv0m.toFixed(2);
-      xvte = parseFloat(form.vte.value);
-      xvtm = xvte * 0.44704;
-      form.vtm.value = xvtm.toFixed(2);
-      xx = parseFloat(form.xxe.value);
-      form.xxm.value = xx.toFixed(2);
-      return true;
-    }
-
-  </SCRIPT>
+<script type="text/javascript" src="/script.js"></script>
 </head>
 
-<BODY>
+<body>
+    <header>
+        <h1>Projectile Motion Calculator</h1>
+        <img src="/asset/404-error.png" alt="team-logo">
+    </header>
   <FORM class="form" NAME="pmotion">
     <center>
-      <B>Projectile Motion Simulation</B>
-      <p>
-      <table BORDER>
-        <div>
+      <table class="upper-ctn" BORDER>
+        <div class="fline">
           <td class="angle">Angle</td>
           <td class="initial speed">Initial Speed</td>
           <td class="terminal speed">Terminal Speed</td>
@@ -197,47 +37,35 @@
     <center>
       <canvas class="graph" id="mygraph" width="800" height="500" style="border:1px solid">
     </center>
-    <center>
-      <table BORDER>
-        <tr>
-          <td>Speed of air</td>
-          <td> Time of Flight</td>
-          <td>Range</td>
-          <td> Max Height</td>
-        </tr>
-        <tr>
-          <td> Supporting </td>
-          <td> <INPUT TYPE="text" name="tof0" value="" readonly="readonly" size="8">sec </td>
-          <td> <INPUT TYPE="text" name="range0m" value="" readonly="readonly" size="8">M =
-            <INPUT TYPE="text" name="range0e" value="" readonly="readonly" size="8">ft
-          </td>
-          <td> <INPUT TYPE="text" name="hmax0m" value="" readonly="readonly" size="8">M =
-            <INPUT TYPE="text" name="hmax0e" value="" readonly="readonly" size="8">ft
-          </td>
-        </tr>
-        <tr>
-          <td>-------</td>
-          <td> <INPUT TYPE="text" name="tof1" value="" readonly="readonly" size="8">sec </td>
-          <td> <INPUT TYPE="text" name="range1m" value="" readonly="readonly" size="8">M =
-            <INPUT TYPE="text" name="range1e" value="" readonly="readonly" size="8">ft
-          </td>
-          <td> <INPUT TYPE="text" name="hmax1m" value="" readonly="readonly" size="8">M =
-            <INPUT TYPE="text" name="hmax1e" value="" readonly="readonly" size="8">ft
-          </td>
-        </tr>
-        <tr>
-          <td>-----<sup>---</sup> </td>
-          <td> <INPUT TYPE="text" name="tof2" value="" readonly="readonly" size="8">sec </td>
-          <td> <INPUT TYPE="text" name="range2m" value="" readonly="readonly" size="8">M =
-            <INPUT TYPE="text" name="range2e" value="" readonly="readonly" size="8">ft
-          </td>
-          <td> <INPUT TYPE="text" name="hmax2m" value="" readonly="readonly" size="8">M =
-            <INPUT TYPE="text" name="hmax2e" value="" readonly="readonly" size="8">ft
-          </td>
-        </tr>
-      </table>
+    <center class="down-ctn">
+            <div class="headOfNoResistence">
+                <h5>No resistance</h5><br>
+            </div>
+            <div class="timeOfNoResistence">
+                <label> Time of Flight</label><br>
+                <INPUT TYPE="text" name="tof0" value="" readonly="readonly">sec
+            </div>
+            <div class="rangeNoResistence">
+                <label>Range</label><br>
+                <INPUT TYPE="text" name="range0m" value="" readonly="readonly">M =
+            </div>
+            <hr>
+            <div class="headOfResistence">
+                <h5>with resistance</h5><br>
+            </div>  
+            <div class="timeOfResistence">
+                <label> Time of Flight</label><br>
+                <INPUT TYPE="text" name="tof1" value="" readonly="readonly">sec
+            </div>
+            <div class="rangOfResistence">
+                <label>Range</label><br>
+                <INPUT TYPE="text" name="range1m" value="" readonly="readonly">M =
+            </div>
+            <div class="heightOfResistence">
+                <label>Max-Height</label><br>
+                <INPUT TYPE="text" name="hmax1m" value="" readonly="readonly">M =
+            </div>    
     </center>
   </form>
-  <p>
-</BODY>
+</body>
 </HTML>
