@@ -7,9 +7,9 @@
   <link rel="shortcut icon" href="catapult.png" type="image/x-icon">
 
 <script type="text/javascript">
-    
+    // defined variables for input
     var xangm, xange, xv0e, xv0m, xvte, xvtm, xx;
-
+    
     function run(form) {
       var x = new Array();
       var y = new Array();
@@ -35,7 +35,7 @@
         ctx.lineTo(xoff, 500);
         ctx.closePath();
         ctx.stroke();
-        ctx.fillStyle = 'rgb(0,200,0)';
+        ctx.fillStyle = 'rgb(0,200,0)'; // green color for graph
         g = 9.8;
         xangm = parseFloat(form.anglem.value);
         xangm = xangm * Math.PI / 180.0;
