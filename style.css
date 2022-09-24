@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 body{
     background-color: whitesmoke;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
 }
 .header{
-    background-color: gray;
     text-align: center;
-    width: 300px;
+    width: 350px;
     height: auto;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
 }
 .header img{
     width: 50px;
@@ -18,6 +24,8 @@ canvas{
     box-shadow: -7px 8px 13px 0px rgba(0,0,0,0.39);
     margin-bottom: 1rem;
     margin-top: 1rem;
+    background-color: white;
+    border-radius: 5px;
 }
 .cool{
     -webkit-box-shadow: -7px 8px 13px 0px rgba(0,0,0,0.39); 
