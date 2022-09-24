@@ -2,8 +2,10 @@ body{
     background-color: whitesmoke;
 }
 .header{
+    background-color: gray;
     text-align: center;
     width: 300px;
+    height: auto;
     display: flex;
     align-items: center;
 }
