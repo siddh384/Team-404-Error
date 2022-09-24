@@ -19,6 +19,9 @@ table{
     justify-content: space-between;
     color: whitesmoke;
     font-family: 'Poppins', sans-serif;
+    font-size: 22;
+    text-align: left;
+    margin-top: -1rem;
 }
 .header img{
     width: 50px;
