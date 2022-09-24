@@ -26,7 +26,7 @@
         ctx.lineTo(xoff, 500);
         ctx.closePath();
         ctx.stroke();
-        ctx.fillStyle = ' rgb(255, 0, 0)'; // green color for graph
+        ctx.fillStyle = ' rgb(0,200,0)'; // green color for graph
         g = 9.8;
         xangm = parseFloat(form.anglem.value);
         xangm = xangm * Math.PI / 180.0;

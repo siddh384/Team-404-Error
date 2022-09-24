@@ -1,107 +1,16 @@
-html, body, div, span, applet, object, iframe, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
 body{
-    background-color: whitesmoke;  
-    overflow: hidden;
-}
-header{
-    width: 100vw;
-    min-height: 10vh;
-    font-weight: 700;
-    background: transparent;
-    text-align: left;
-    padding: 0.25rem 0 0.25rem 1rem;
-    border: none;
-}
-header > img {
-    width: 45px;
-    height: 45px;
-    position: absolute;
-    top: 1rem;
-    left: 385px;
-}
-
-input{
-    /* border: ; */
     background-color: whitesmoke;
-    border: 2px solid #f0f0f0;
-    border-radius: 4px;
-    display: block;
-    font-size: 12px;
-    padding: 10px;
-    width: 80%;
-}
-input:focus {
-    outline: 0;
-  }
-.down-ctn{
-    width: 250px;
-    height: auto;
-    padding: 1rem;
-    background-color: gray;
-    border-radius: 10px;
-    border: 1.3px solid black;
-    z-index: -1;
-}
-.upper-ctn{
-    min-width: 100px;
-    height: 300px;
-    padding: 1rem;
-    background-color: gray;
-    border-radius: 10px;
-    border: 1.3px solid black;
-    position: absolute;
-    z-index: 1;
-
 }
 canvas{
-    background-color: gray;
-    position: absolute;
-    top: 3rem;
-    left: 28rem;
-    border-radius: 5px;
+    -webkit-box-shadow: -7px 8px 13px 0px rgba(0,0,0,0.39); 
+    box-shadow: -7px 8px 13px 0px rgba(0,0,0,0.39);
+    margin-bottom: 1rem;
+}
+.cool{
     -webkit-box-shadow: -7px 8px 13px 0px rgba(0,0,0,0.39); 
     box-shadow: -7px 8px 13px 0px rgba(0,0,0,0.39);
 }
-tr { display: block; float: left; }
-th, td { display: block; }
+.nice{
+    -webkit-box-shadow: -7px 8px 13px 0px rgba(0,0,0,0.39); 
+    box-shadow: -7px 8px 13px 0px rgba(0,0,0,0.39);
+}
